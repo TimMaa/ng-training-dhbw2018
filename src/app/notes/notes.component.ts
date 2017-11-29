@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesComponent implements OnInit {
 
-  notes: object = [{
+  newContent: string = '';
+  newTitle: string = '';
+
+
+  notes: any = [{
     title: "Hello world!",
     content: "What a wonderful world!"
   },
@@ -21,4 +25,18 @@ export class NotesComponent implements OnInit {
   ngOnInit() {
   }
 
+  newCard() {
+    this.notes.push({
+      id: this.notes.length+1,
+      title: this.newTitle,
+      content: this.newContent
+    });
+
+    this.newTitle = "";
+    this.newContent = "";
+  }
+
+  deleteCard(did: number) {
+    this.notes.splice(did-1,1);
+  }
 }

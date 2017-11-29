@@ -12,6 +12,8 @@ import { HeaderComponent } from './header/header.component';
 import { NotesComponent } from './notes/notes.component';
 import { NotecardComponent } from './notecard/notecard.component';
 import { RoutingModule } from "./app.routing";
+import {ApiService} from "./services/api.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -32,9 +34,10 @@ import { RoutingModule } from "./app.routing";
     FlexLayoutModule,
     MatDialogModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

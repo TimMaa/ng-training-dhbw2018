@@ -10,3 +10,7 @@ html, body{
 router-outlet, app-header{
   width: 100%;
 }
+
+mat-card{
+  margin: 16px;
+}

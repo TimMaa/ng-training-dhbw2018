@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../services/api.service";
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  factdata: any;
+  _api: any;
+
+  constructor(_api: ApiService) {
+    this._api = _api;
+  }
 
   ngOnInit() {
+
+  }
+
+  newFact(){
+    this._api.getFact().subscribe(
+      data => {
+        this.factdata = data;
+      },
+      error => {
+        console.log("There was an error");
+      });
   }
 
 }

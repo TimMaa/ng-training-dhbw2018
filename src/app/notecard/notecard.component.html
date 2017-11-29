@@ -1,11 +1,11 @@
 <mat-card>
   <mat-card-title>
-    {{notetitle}}
+    {{noteid}}. {{notetitle}}
   </mat-card-title>
   <mat-card-content>
     {{notecontent}}
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button>Delete</button>
+    <button mat-raised-button (click)="this.cardDeleted.emit(this.noteid)">Delete</button>
   </mat-card-actions>
 </mat-card>

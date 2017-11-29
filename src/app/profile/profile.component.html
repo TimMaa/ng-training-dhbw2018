@@ -1,1 +1,16 @@
-<span id="profileplaceholder"> Hier würde man ein Profil finden! </span>
+<div id="profileWindow">
+  <h1> Hier könnte ein Profil stehen! </h1>
+  <h2>Doch leider findet sich hier nur eins...</h2>
+
+  <button mat-raised-button (click)="newFact()">Generate</button>
+
+  <mat-card *ngIf="this.factdata" id="factcard">
+    <mat-card-header>
+      <mat-card-title>Chuck Norris Fakt</mat-card-title>
+      <mat-card-subtitle>{{this.factdata.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      {{this.factdata.value}}
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-notecard',
@@ -7,8 +7,11 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class NotecardComponent implements OnInit {
 
+  @Input() noteid: number;
   @Input() notetitle: string;
   @Input() notecontent: string;
+
+  @Output() cardDeleted = new EventEmitter();
 
   ngOnInit() {
   }

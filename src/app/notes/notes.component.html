@@ -1,8 +1,27 @@
 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutWrap>
   <app-notecard
     fxFlex.lt-sm="100" fxFlex.gt-xs="50"
-    *ngFor="let note of notes"
+    *ngFor="let note of notes, let i = index"
+    [noteid]="i+1"
     [notecontent]="note.content"
-    [notetitle]="note.title">
+    [notetitle]="note.title"
+    (cardDeleted)="deleteCard($event)">
   </app-notecard>
+
+
+  <div fxFlex.lt-sm="100" fxFlex.gt-xs="50">
+    <mat-card>
+      <form style="width: 100%;">
+        <mat-form-field style="width: 100%;">
+          <input [(ngModel)]="newTitle" [ngModelOptions]="{standalone: true}" matInput placeholder="New Note Title">
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%;">
+          <input [(ngModel)]="newContent" [ngModelOptions]="{standalone: true}" matInput placeholder="New Note Content"/>
+        </mat-form-field>
+
+        <button mat-raised-button (click)="newCard()">New Card</button>
+      </form>
+    </mat-card>
+  </div>
 </div>
