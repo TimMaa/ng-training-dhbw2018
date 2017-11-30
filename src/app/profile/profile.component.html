@@ -1,5 +1,5 @@
 <div id="profileWindow">
-  <h1> Hier könnte ein Profil stehen! </h1>
+  <h1> Hier könnte ein Profil von {{ name }} stehen! </h1>
   <h2>Doch leider findet sich hier nur eins...</h2>
 
   <button mat-raised-button (click)="newFact()">Generate</button>
@@ -7,7 +7,7 @@
   <mat-card *ngIf="this.factdata" id="factcard">
     <mat-card-header>
       <mat-card-title>Chuck Norris Fakt</mat-card-title>
-      <mat-card-subtitle>{{this.factdata.id}}</mat-card-subtitle>
+      <mat-card-subtitle class="chuck">{{this.factdata.id}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       {{this.factdata.value}}
